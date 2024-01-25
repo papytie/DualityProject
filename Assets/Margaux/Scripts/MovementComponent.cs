@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
 {
+    public event Action<float> OnForwardMovement = null;
     [SerializeField] float moveSpeed = 10;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
@@ -24,13 +26,14 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //MoveAutoForward();
+       MoveAutoForward();
         MoveHorizontal();
     }
     public void MoveAutoForward()
     {
         Vector3 _fwdMovement = transform.forward * moveSpeed * Time.deltaTime;
         transform.position += _fwdMovement;
+        OnForwardMovement?.Invoke(0);
     }
     public void MoveHorizontal()
     {
