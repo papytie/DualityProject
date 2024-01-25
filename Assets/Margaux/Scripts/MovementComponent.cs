@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
-{
-    public event Action<float> OnForwardMovement = null;
+{   
     [SerializeField] float moveSpeed = 10;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
@@ -32,8 +31,7 @@ public class MovementComponent : MonoBehaviour
     public void MoveAutoForward()
     {
         Vector3 _fwdMovement = transform.forward * moveSpeed * Time.deltaTime;
-        transform.position += _fwdMovement;
-        OnForwardMovement?.Invoke(0);
+        transform.position += _fwdMovement;       
     }
     public void MoveHorizontal()
     {
