@@ -10,7 +10,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
     public event Action OnMalusSpawn = null;
 
     [Header("References")]
-    [SerializeField] MoveAuto player = null;
+    [SerializeField] GameObject player = null;
 
     [Header("Tile Settings")]
     [SerializeField] GameObject tileTemplate = null;
