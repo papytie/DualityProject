@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MovementComponent : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5;
+    [SerializeField] float moveSpeed = 10;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
 
