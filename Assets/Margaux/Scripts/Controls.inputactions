@@ -15,7 +15,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Start",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "3cbbcfb6-2aa6-49fd-bd49-ac959a70b919",
                     "expectedControlType": "Button",
@@ -65,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Start",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

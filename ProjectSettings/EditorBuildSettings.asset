@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Margaux/Scenes/MainMenuUI.unity
+    guid: 6823227e4b6d0f34d9802165df6a3294
+  - enabled: 1
+    path: Assets/Margaux/Scenes/MargauxScene.unity
+    guid: d08dd999ea7ad784cad959f07a63b803
   m_configObjects: {}

@@ -9,6 +9,10 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
+    [SerializeField] GameObject pauseMenu = null;
+    [SerializeField] InputAction pause = null;
+
+    public InputAction Pause => pause;
 
     public InputAction Move => move;
 
@@ -41,10 +45,37 @@ public class MovementComponent : MonoBehaviour
         transform.position=new Vector3(Mathf.Clamp(
             transform.position.x,-1f,1f),transform.position.y,transform.position.z);
     }
+    public void StatePauseMenuOnStart()
+    {
+        if (pauseMenu != null)
+        {
+            
+            pauseMenu.gameObject.SetActive(false);
+        }
+
+    }
+    public void StatePauseMenuOnClick(InputAction.CallbackContext _context)
+    {
+        if(pauseMenu!= null)
+        {
+            Debug.Log("SetActive");
+            pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
+
+            if(pauseMenu.activeSelf)
+            {
+                Debug.Log("Pause");
+                Time.timeScale = 0f;
+            }
+        }
+    }
 
     private void OnEnable()
     {
         move = controls.Runner.Move;
         move.Enable();
+        pause = controls.Runner.Pause;
+        pause.Enable();
+        pause.performed += StatePauseMenuOnClick;
+
     }
 }

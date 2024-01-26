@@ -37,7 +37,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Start"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""3cbbcfb6-2aa6-49fd-bd49-ac959a70b919"",
                     ""expectedControlType"": ""Button"",
@@ -87,7 +87,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Start"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -99,7 +99,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         // Runner
         m_Runner = asset.FindActionMap("Runner", throwIfNotFound: true);
         m_Runner_Move = m_Runner.FindAction("Move", throwIfNotFound: true);
-        m_Runner_Start = m_Runner.FindAction("Start", throwIfNotFound: true);
+        m_Runner_Pause = m_Runner.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -162,13 +162,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Runner;
     private List<IRunnerActions> m_RunnerActionsCallbackInterfaces = new List<IRunnerActions>();
     private readonly InputAction m_Runner_Move;
-    private readonly InputAction m_Runner_Start;
+    private readonly InputAction m_Runner_Pause;
     public struct RunnerActions
     {
         private @Controls m_Wrapper;
         public RunnerActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Runner_Move;
-        public InputAction @Start => m_Wrapper.m_Runner_Start;
+        public InputAction @Pause => m_Wrapper.m_Runner_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Runner; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -181,9 +181,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @Start.started += instance.OnStart;
-            @Start.performed += instance.OnStart;
-            @Start.canceled += instance.OnStart;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IRunnerActions instance)
@@ -191,9 +191,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @Start.started -= instance.OnStart;
-            @Start.performed -= instance.OnStart;
-            @Start.canceled -= instance.OnStart;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IRunnerActions instance)
@@ -214,6 +214,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     public interface IRunnerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnStart(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
