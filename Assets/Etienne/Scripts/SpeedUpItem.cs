@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpeedUpItem : PickUpItem
 {
+    public float SpeedBonus => speedBonus;
+
     [SerializeField] float speedBonus = 1;
 
     protected override void Start()

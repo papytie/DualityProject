@@ -5,10 +5,11 @@ using UnityEngine;
 public abstract class PickUpItem : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 100;
+    [SerializeField] Destroyer destroyer = null;
 
     protected virtual void Start()
     {
-        transform.eulerAngles = new Vector3(45, 45, 45);
+        InitItem();
     }
 
     protected virtual void Update()
@@ -16,8 +17,22 @@ public abstract class PickUpItem : MonoBehaviour
         ItemRotation();
     }
 
+    void InitItem()
+    {
+        transform.eulerAngles = new Vector3(45, 45, 45);
+        destroyer = GameManager.Instance.DestroyerRef;
+
+    }
+
     protected void ItemRotation()
     {
         transform.eulerAngles += transform.up * rotationSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroyer _destroyer = other.gameObject.GetComponent<Destroyer>();
+        if (_destroyer)
+            Destroy(gameObject);
     }
 }
