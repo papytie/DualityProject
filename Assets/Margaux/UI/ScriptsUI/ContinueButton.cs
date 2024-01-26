@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class RestartButton : CustomButtonUI
+public class ContinueButton : CustomButtonUI
 {
-    [SerializeField] SceneAsset sceneToLoad = null;
+    [SerializeField] GameObject pauseMenu = null;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -16,11 +14,12 @@ public class RestartButton : CustomButtonUI
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     protected override void Execute()
     {
-        SceneManager.LoadScene(sceneToLoad.name);
+        Time.timeScale = 1.0f;
+        pauseMenu.gameObject.SetActive(false);
 
     }
 }

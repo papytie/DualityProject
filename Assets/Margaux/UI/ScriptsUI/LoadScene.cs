@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : CustomButtonUI
 {
-    [SerializeField] string sceneName = "";
+    
     [SerializeField] SceneAsset sceneToLoad = null;
     // Start is called before the first frame update
     protected override void Start()
@@ -21,7 +21,7 @@ public class LoadScene : CustomButtonUI
     }
     protected override void Execute()
     {
-        //SceneManager.LoadScene(sceneName);
+        
         SceneManager.LoadScene(sceneToLoad.name);
     }
 }
