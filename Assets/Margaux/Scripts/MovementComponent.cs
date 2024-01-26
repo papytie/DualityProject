@@ -11,6 +11,8 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float clampPos = 1;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
+    [SerializeField] AnimationParameter animationParameter = null;
+    [SerializeField] Animation animationUpdate = null;
        
     public InputAction Move => move;
     public float MoveSpeed
@@ -46,6 +48,11 @@ public class MovementComponent : MonoBehaviour
         transform.position += _horizontalMovement;
         transform.position=new Vector3(Mathf.Clamp(
             transform.position.x,clampNeg,clampPos),transform.position.y,transform.position.z);
+        //UpdateRightAxisParam();
+    }
+    public void UpdateAnimSpeed()
+    {
+        //animSpeed = moveSpeed / 10;
     }
    
     public void SetMoveSpeed(float _value)
