@@ -30,6 +30,12 @@ public class InfiniteLevelGeneration : MonoBehaviour
     [SerializeField] float bonusCurrentTime = 0;
     [SerializeField] float bonusMaxTime = 3;
     [SerializeField] float bonusYPos = 1;
+    [SerializeField] float bonusSequenceTime = .1f;
+    [SerializeField] int bonusSequenceNumber = 4;
+    [SerializeField] bool bonusSpawnInSequence = true;
+    int bonusSpawnCount = 0;
+    float bonusZLocation = 0;
+    float bonusXLocation = 0;
 
     [Header("Malus Settings")]
     [SerializeField] GameObject SpeedMalusItem = null;
@@ -50,6 +56,11 @@ public class InfiniteLevelGeneration : MonoBehaviour
 
         OnBonusSpawn += () =>
         {
+            if(bonusSpawnInSequence)
+            {
+                SpawnSequence(bonusSequenceNumber, bonusSequenceTime, bonusYPos);
+                return;
+            }
             SpawnNew(SpeedBonusItem, NextPickUpPos(bonusYPos));
         };
 
@@ -66,10 +77,31 @@ public class InfiniteLevelGeneration : MonoBehaviour
         malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, malusMaxTime);
     }
 
-
     void SpawnNew(GameObject _toSpawn, Vector3 _spawnPos)
     {
         Instantiate(_toSpawn, _spawnPos, Quaternion.identity);
+    }
+
+    void SpawnSpeedBonus()
+    {
+        Vector3 _newLoc = new Vector3(bonusXLocation, bonusYPos, bonusZLocation + player.transform.position.z);
+        Debug.Log(_newLoc);
+        SpawnNew(SpeedBonusItem, _newLoc);
+        
+        bonusSpawnCount++;
+        if (bonusSpawnCount >= bonusSequenceNumber)
+        {
+            CancelInvoke(nameof(SpawnSpeedBonus));
+            bonusSpawnCount = 0;
+        }
+    }
+
+    void SpawnSequence(int _number, float _time, float _Ypos)
+    {
+        bonusZLocation = RandomZFromPlayer();
+        bonusXLocation = RandomXClampPos();
+        InvokeRepeating(nameof(SpawnSpeedBonus), 0, _time);
+
     }
 
     float IncreaseTimer(Action _event, ref float _time, float _max)
@@ -82,7 +114,6 @@ public class InfiniteLevelGeneration : MonoBehaviour
         }
         return _time;
     }
-
 
     void UpdateMaxTime()
     {
