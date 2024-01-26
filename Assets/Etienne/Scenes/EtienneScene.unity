@@ -923,17 +923,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffe330326ff0e65429f3af1534492494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 295798572}
+  player: {fileID: 295798570}
   tileTemplate: {fileID: 5471752129087598968, guid: 16b1c1d8e255c164198763e5073025e2, type: 3}
-  SpeedBonusItem: {fileID: 4922461117786730151, guid: 5f40fa76463b12a42b58fd9b81cc2762, type: 3}
-  SpeedMalusItem: {fileID: 4444052511972696272, guid: 820431511ceb7624c87023a1f06c5d76, type: 3}
   sectionSize: 30
-  currentTime: 0
-  maxTime: 1
+  tileCurrentTime: 0
+  tileMaxTime: 3
   tileCount: 5
-  leftMax: -4
-  rightMax: 4
-  faceRecto: 1
+  minZPos: 20
+  maxZPos: 40
+  minXPos: -4
+  maxXPos: 4
+  SpeedBonusItem: {fileID: 4922461117786730151, guid: 5f40fa76463b12a42b58fd9b81cc2762, type: 3}
+  bonusCurrentTime: 0
+  bonusMaxTime: 3
+  bonusYPos: 1
+  bonusSequenceTime: 0.2
+  bonusSequenceNumber: 4
+  bonusSpawnInSequence: 1
+  SpeedMalusItem: {fileID: 4444052511972696272, guid: 820431511ceb7624c87023a1f06c5d76, type: 3}
+  malusCurrentTime: 0
+  malusMaxTime: 3
+  malusYPos: -1
 --- !u!4 &999626908
 Transform:
   m_ObjectHideFlags: 0
