@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedUpItem : PickUpItem
+public class SpeedDownItem : PickUpItem
 {
-    public float SpeedBonus => speedBonus;
+    public float SpeedMalus => speedMalus;
 
-    [SerializeField] float speedBonus = 1;
+    [SerializeField] float speedMalus = -1;
 
     protected override void Start()
     {

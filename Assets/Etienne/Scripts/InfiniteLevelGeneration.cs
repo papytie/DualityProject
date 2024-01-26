@@ -8,6 +8,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
     public event Action OnTileSpawn = null;
     public event Action OnBonusSpawn = null;
     public event Action OnMalusSpawn = null;
+    public event Action OnReverseSpawn = null;
 
     [Header("References")]
     [SerializeField] GameObject player = null;
@@ -43,6 +44,12 @@ public class InfiniteLevelGeneration : MonoBehaviour
     [SerializeField] float malusMaxTime = 3;
     [SerializeField] float malusYPos = -1;
 
+    [Header("Reverse Settings")]
+    [SerializeField] GameObject reverseItem = null;
+    [SerializeField] float reverseCurrentTime = 0;
+    [SerializeField] float reverseMaxTime = 3;
+    [SerializeField] float reverseYPos = 0;
+
     //[SerializeField] bool faceRecto = true;
     //[SerializeField] List<GameObject> tileList = new();
     public Vector3 NextTilePos => transform.position + transform.forward * sectionSize * tileCount;
@@ -68,6 +75,11 @@ public class InfiniteLevelGeneration : MonoBehaviour
         {
             SpawnNew(SpeedMalusItem, NextPickUpPos(malusYPos));
         };
+
+        OnReverseSpawn += () =>
+        {
+            SpawnNew(reverseItem, NextPickUpPos(reverseYPos));
+        };
     }
 
     void Update()
@@ -75,6 +87,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
         tileCurrentTime = IncreaseTimer(OnTileSpawn, ref tileCurrentTime, tileMaxTime);
         bonusCurrentTime = IncreaseTimer(OnBonusSpawn, ref bonusCurrentTime, bonusMaxTime);
         malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, malusMaxTime);
+        reverseCurrentTime = IncreaseTimer(OnReverseSpawn, ref reverseCurrentTime, reverseMaxTime);
     }
 
     void SpawnNew(GameObject _toSpawn, Vector3 _spawnPos)
@@ -85,7 +98,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
     void SpawnSpeedBonus()
     {
         Vector3 _newLoc = new Vector3(bonusXLocation, bonusYPos, bonusZLocation + player.transform.position.z);
-        Debug.Log(_newLoc);
+        //Debug.Log(_newLoc);
         SpawnNew(SpeedBonusItem, _newLoc);
         
         bonusSpawnCount++;
