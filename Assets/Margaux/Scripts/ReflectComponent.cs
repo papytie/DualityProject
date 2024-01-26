@@ -15,11 +15,10 @@ public class ReflectComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ReflectMovement();
     }
     public void ReflectMovement()
     {
-        movementComponent.MoveAutoForward();
-        movementComponent.MoveHorizontal();
+        transform.position=movementComponent.transform.position;
     }
 }
