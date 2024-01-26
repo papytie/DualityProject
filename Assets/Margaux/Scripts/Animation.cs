@@ -15,7 +15,7 @@ public class Animation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerAnimator = GetComponent<Animator>();
+        Init();
     }
 
     // Update is called once per frame
@@ -25,14 +25,21 @@ public class Animation : MonoBehaviour
     }
     public void Init()
     {
+        playerAnimator = GetComponent<Animator>();
         movement = GetComponent<MovementComponent>();
         
     }
 
-    public void UpdateForwardAxisParam(float _value)
+    public void UpdateRightAxisParam(float _value)
     {
        
-        playerAnimator.SetFloat(AnimationParameter.ForwardAxisParam, _value);
+        playerAnimator.SetFloat(AnimationParameter.RightAxisParam, _value);
+
+    }
+    public void UpdateAnimSpeedParam(float _value)
+    {
+
+        playerAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value);
 
     }
 }

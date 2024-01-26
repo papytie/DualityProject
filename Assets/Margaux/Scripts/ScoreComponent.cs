@@ -22,20 +22,18 @@ public class ScoreComponent : MonoBehaviour
     {
         
     }
-    public void AddBonus()
+    public void ChangeScore(int _value)
     {
-        score++;
-        UpdateScoreUI();
+        score += _value;
+        UpdateScoreUI(_value);
     }
-    public void AddMalus()
+   
+    public void UpdateScoreUI(float _value)
     {
-        score--;
-        UpdateScoreUI();
-    }
-    public void UpdateScoreUI()
-    {
-        if(scoreTxt!=null)
-            scoreTxt.text = score.ToString();
+
+        scoreTxt.text = $"{_value}";
+
+
     }
 
 
