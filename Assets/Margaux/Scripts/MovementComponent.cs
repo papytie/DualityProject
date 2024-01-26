@@ -50,7 +50,7 @@ public class MovementComponent : MonoBehaviour
    
     public void SetMoveSpeed(float _value)
     {
-        moveSpeed=Mathf.Max(0, _value);
+        moveSpeed += _value;
     }
 
     private void OnEnable()
