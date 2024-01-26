@@ -59,4 +59,13 @@ public class Destroyer : MonoBehaviour
         }
         return _current;
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Tile _tile = other.gameObject.GetComponent<Tile>();
+        if (_tile)
+        {
+            Destroy(_tile.gameObject);
+        }
+    }
 }
