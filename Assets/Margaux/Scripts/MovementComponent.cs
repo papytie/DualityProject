@@ -7,14 +7,16 @@ using UnityEngine.InputSystem;
 public class MovementComponent : MonoBehaviour
 {   
     [SerializeField] float moveSpeed = 10;
+    [SerializeField] float clampNeg = -1;
+    [SerializeField] float clampPos = 1;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
-    [SerializeField] GameObject pauseMenu = null;
-    [SerializeField] InputAction pause = null;
-
-    public InputAction Pause => pause;
-
+       
     public InputAction Move => move;
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+    }
 
     private void Awake()
     {
@@ -43,39 +45,18 @@ public class MovementComponent : MonoBehaviour
         Vector3 _horizontalMovement = new Vector3(_horizontalValue, 0f, 0f) * moveSpeed * Time.deltaTime;
         transform.position += _horizontalMovement;
         transform.position=new Vector3(Mathf.Clamp(
-            transform.position.x,-1f,1f),transform.position.y,transform.position.z);
+            transform.position.x,clampNeg,clampPos),transform.position.y,transform.position.z);
     }
-    public void StatePauseMenuOnStart()
+   
+    public void SetMoveSpeed(float _value)
     {
-        if (pauseMenu != null)
-        {
-            
-            pauseMenu.gameObject.SetActive(false);
-        }
-
-    }
-    public void StatePauseMenuOnClick(InputAction.CallbackContext _context)
-    {
-        if(pauseMenu!= null)
-        {
-            Debug.Log("SetActive");
-            pauseMenu.gameObject.SetActive(!pauseMenu.gameObject.activeSelf);
-
-            if(pauseMenu.activeSelf)
-            {
-                Debug.Log("Pause");
-                Time.timeScale = 0f;
-            }
-        }
+        moveSpeed=Mathf.Max(0, _value);
     }
 
     private void OnEnable()
     {
         move = controls.Runner.Move;
         move.Enable();
-        pause = controls.Runner.Pause;
-        pause.Enable();
-        pause.performed += StatePauseMenuOnClick;
 
     }
 }
