@@ -34,7 +34,7 @@ public class PickUpComponent : MonoBehaviour
         if (_bonusItem)
         {
             Debug.Log("SpeedBonus : +" + _bonusItem.SpeedBonus);
-            //TODO: Call AddSpeed
+            movementComponent.SetMoveSpeed(_bonusItem.SpeedBonus);
             Destroy(_bonusItem.gameObject);
         }
 
@@ -42,7 +42,7 @@ public class PickUpComponent : MonoBehaviour
         if (_malusItem)
         {
             Debug.Log("SpeedDown : " + _malusItem.SpeedMalus);
-            //TODO: Call RemoveSpeed
+            movementComponent.SetMoveSpeed(_malusItem.SpeedMalus);
             Destroy(_malusItem.gameObject);
         }
 
@@ -54,6 +54,12 @@ public class PickUpComponent : MonoBehaviour
             Destroy(_reverseItem.gameObject);
         }
 
+        Destroyer _destroyer = other.gameObject.GetComponent<Destroyer>();
+        if (_destroyer)
+        {
+            Debug.Log("GameOver");
+            GameManager.Instance.GameOverRef.ActivateGameOverPanel();
+        }
 
     }
 }

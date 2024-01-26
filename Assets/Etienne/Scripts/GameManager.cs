@@ -9,12 +9,14 @@ public class GameManager : Singleton<GameManager>
     public Destroyer DestroyerRef => destroyerRef;
     public CinemachineVirtualCamera AmyCam => amyCam;
     public CinemachineVirtualCamera ZombieCam => zombieCam;
-    public PickupComponent PickUpComponentRef => pickUpComponentRef;
+    public PickUpComponent PickUpComponentRef => pickUpComponentRef;
+    public GameOverPopup GameOverRef => gameOverRef;
 
     [SerializeField] MovementComponent playerMoveRef = null;
     [SerializeField] Destroyer destroyerRef = null;
     [SerializeField] CinemachineVirtualCamera amyCam = null;
     [SerializeField] CinemachineVirtualCamera zombieCam = null;
-    [SerializeField] PickupComponent pickUpComponentRef = null;
+    [SerializeField] PickUpComponent pickUpComponentRef = null;
+    [SerializeField] GameOverPopup gameOverRef = null;
 
 }
