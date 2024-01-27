@@ -7,6 +7,7 @@ public class ScoreComponent : MonoBehaviour
 {
     [SerializeField] int score = 0;
     [SerializeField] TextMeshProUGUI scoreTxt = null;
+    
     public int Score => score;
     // Start is called before the first frame update
     void Start()
