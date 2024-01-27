@@ -28,7 +28,7 @@ public class ScoreComponent : MonoBehaviour
         UpdateScoreUI(_value);
     }
    
-    public void UpdateScoreUI(float _value)
+    public void UpdateScoreUI(int _value)
     {
 
         scoreTxt.text = $"{_value}";
