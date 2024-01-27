@@ -52,10 +52,11 @@ public class MovementComponent : MonoBehaviour
             transform.position.x,clampNeg,clampPos),transform.position.y,transform.position.z);
         animationUpdate.UpdateRightAxisParam(_horizontalValue);
     }
-   
+  
     public void SetMoveSpeed(float _value)
     {
         moveSpeed += _value;
+        turnSpeed = moveSpeed / 3;
     }
 
     private void OnEnable()
