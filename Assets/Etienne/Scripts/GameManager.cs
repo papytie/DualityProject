@@ -11,12 +11,18 @@ public class GameManager : Singleton<GameManager>
     public CinemachineVirtualCamera ZombieCam => zombieCam;
     public PickUpComponent PickUpComponentRef => pickUpComponentRef;
     public GameOverPopup GameOverRef => gameOverRef;
+    public InfiniteLevelGeneration Spawner => spawner;
+    public Animator AmyAnim => amyAnim;
+    public Animator ZombiGirlAnim => zombiGirlAnim;
 
+    [SerializeField] InfiniteLevelGeneration spawner = null;
     [SerializeField] MovementComponent playerMoveRef = null;
     [SerializeField] Destroyer destroyerRef = null;
     [SerializeField] CinemachineVirtualCamera amyCam = null;
     [SerializeField] CinemachineVirtualCamera zombieCam = null;
     [SerializeField] PickUpComponent pickUpComponentRef = null;
     [SerializeField] GameOverPopup gameOverRef = null;
+    [SerializeField] Animator amyAnim = null;
+    [SerializeField] Animator zombiGirlAnim = null;
 
 }

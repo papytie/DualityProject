@@ -11,13 +11,20 @@ public class InfiniteLevelGeneration : MonoBehaviour
     public event Action OnReverseSpawn = null;
     public event Action OnScoreSpawn = null;
 
+    public bool IsUpsideDown { get => isUpsideDown; set { isUpsideDown = value; } }
+    public bool ResetAllTimers { get => resetAllTimers; set { resetAllTimers = value; } }
+
     [Header("References")]
     [SerializeField] GameObject player = null;
+
+    [Header("Global Settings")]
+    bool resetAllTimers = false;
 
     [Header("Tile Settings")]
     [SerializeField] GameObject tileTemplate = null;
     [SerializeField] float sectionSize = 10;
     [SerializeField] float tileMaxTime = 3;
+    [SerializeField] float timeMaxDiv = 20;
     [SerializeField] int tileCount = 3;
     float tileCurrentTime = 0;
 
@@ -34,27 +41,32 @@ public class InfiniteLevelGeneration : MonoBehaviour
     [SerializeField] float scoreSequenceTime = .1f;
     [SerializeField] int scoreSequenceNumber = 4;
     [SerializeField] bool scoreSpawnInSequence = true;
-    float scoreCurrentTime = 0;
-    int scoreSpawnCount = 0;
+    [SerializeField] float scoreCurrentTime = 0;
+    [SerializeField] int scoreSpawnCount = 0;
+    //TODO: Debug Score Spawn after Reverse
     float scoreZLocation = 0;
     float scoreXLocation = 0;
 
     [Header("Speed Bonus Settings")]
     [SerializeField] GameObject SpeedBonusItem = null;
     [SerializeField] float bonusMaxTime = 3;
+    [SerializeField] float versoBonusMaxTime = 5;
     [SerializeField] float bonusYPos = 1;
     float bonusCurrentTime = 0;
 
     [Header("Speed Malus Settings")]
     [SerializeField] GameObject SpeedMalusItem = null;
     [SerializeField] float malusMaxTime = 3;
+    [SerializeField] float versoMalusMaxTime = 1;
     [SerializeField] float malusYPos = -1;
     float malusCurrentTime = 0;
 
     [Header("Reverse Settings")]
     [SerializeField] GameObject reverseItem = null;
     [SerializeField] float reverseMaxTime = 3;
+    [SerializeField] float versoReverseMaxTime = 3;
     [SerializeField] float reverseYPos = 0;
+    [SerializeField] bool isUpsideDown = false;
     float reverseCurrentTime = 0;
 
     //[SerializeField] bool faceRecto = true;
@@ -62,6 +74,8 @@ public class InfiniteLevelGeneration : MonoBehaviour
     public Vector3 NextTilePos => transform.position + transform.forward * sectionSize * tileCount;
     void Start()
     {
+        UpdateTileMaxTime();
+
         OnTileSpawn += () =>
         {
             SpawnNew(tileTemplate, NextTilePos);
@@ -75,29 +89,49 @@ public class InfiniteLevelGeneration : MonoBehaviour
                 SpawnSequence(scoreSequenceNumber, scoreSequenceTime, scoreYPos);
                 return;
             }
-            SpawnNew(scoreItem, NextPickUpPos(scoreYPos));
+            SpawnNew(scoreItem, RandomPickUpPos(scoreYPos));
 
         };
 
         OnBonusSpawn += () =>
         {
-            SpawnNew(SpeedBonusItem, NextPickUpPos(bonusYPos));
+            SpawnNew(SpeedBonusItem, RandomPickUpPos(bonusYPos));
         };
 
         OnMalusSpawn += () =>
         {
-            SpawnNew(SpeedMalusItem, NextPickUpPos(malusYPos));
+            SpawnNew(SpeedMalusItem, RandomPickUpPos(malusYPos));
         };
 
         OnReverseSpawn += () =>
         {
-            SpawnNew(reverseItem, NextPickUpPos(reverseYPos));
+            SpawnNew(reverseItem, CenterPickUpPos(reverseYPos));
         };
     }
 
     void Update()
     {
         tileCurrentTime = IncreaseTimer(OnTileSpawn, ref tileCurrentTime, tileMaxTime);
+
+        if (resetAllTimers)
+        {
+            bonusCurrentTime = 0;
+            malusCurrentTime = 0;
+            reverseCurrentTime = 0;
+            scoreCurrentTime = 0;
+            resetAllTimers = false;
+            return;
+        }
+
+        if(isUpsideDown)
+        {
+            bonusCurrentTime = IncreaseTimer(OnBonusSpawn, ref bonusCurrentTime, versoBonusMaxTime);
+            malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, versoMalusMaxTime);
+            reverseCurrentTime = IncreaseTimer(OnReverseSpawn, ref reverseCurrentTime, versoReverseMaxTime);
+            //scoreCurrentTime = IncreaseTimer(OnScoreSpawn, ref scoreCurrentTime, scoreMaxTime);
+            return;
+        }
+
         bonusCurrentTime = IncreaseTimer(OnBonusSpawn, ref bonusCurrentTime, bonusMaxTime);
         malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, malusMaxTime);
         reverseCurrentTime = IncreaseTimer(OnReverseSpawn, ref reverseCurrentTime, reverseMaxTime);
@@ -129,6 +163,10 @@ public class InfiniteLevelGeneration : MonoBehaviour
         InvokeRepeating(nameof(SpawnScoreSequence), 0, _time);
 
     }
+    public void UpdateTileMaxTime()
+    {
+        tileMaxTime = timeMaxDiv / GameManager.Instance.PlayerMoveRef.MoveSpeed;
+    }
 
     float IncreaseTimer(Action _event, ref float _time, float _max)
     {
@@ -141,14 +179,14 @@ public class InfiniteLevelGeneration : MonoBehaviour
         return _time;
     }
 
-    void UpdateMaxTime()
-    {
-        //maxTime = player.MoveSpeed /10 * 2
-    }
-
-    Vector3 NextPickUpPos(float _upPos)
+    Vector3 RandomPickUpPos(float _upPos)
     {
         return new Vector3(RandomXClampPos(), _upPos, RandomZFromPlayer());
+    }
+
+    Vector3 CenterPickUpPos(float _upPos)
+    {
+        return new Vector3(0, _upPos, RandomZFromPlayer());
     }
 
     int RandomXClampPos()

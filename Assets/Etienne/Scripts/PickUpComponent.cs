@@ -30,6 +30,12 @@ public class PickUpComponent : MonoBehaviour
         GameManager.Instance.ZombieCam.Priority = GameManager.Instance.ZombieCam.Priority == 0 ? 1 : 0;
     }
 
+    void EnterUpsideDown()
+    {
+        GameManager.Instance.Spawner.IsUpsideDown = GameManager.Instance.Spawner.IsUpsideDown ? false : true;
+        GameManager.Instance.Spawner.ResetAllTimers = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         ScoreItem _scoreItem = other.gameObject.GetComponent<ScoreItem>();
@@ -45,6 +51,9 @@ public class PickUpComponent : MonoBehaviour
         {
             Debug.Log("SpeedBonus : +" + _bonusItem.SpeedBonus);
             movementComponent.SetMoveSpeed(_bonusItem.SpeedBonus);
+            GameManager.Instance.Spawner.UpdateTileMaxTime();
+            GameManager.Instance.AmyAnim.SetTrigger("bonusReaction");
+            GameManager.Instance.ZombiGirlAnim.SetTrigger("bonusReaction");
             Destroy(_bonusItem.gameObject);
         }
 
@@ -53,6 +62,9 @@ public class PickUpComponent : MonoBehaviour
         {
             Debug.Log("SpeedDown : " + _malusItem.SpeedMalus);
             movementComponent.SetMoveSpeed(_malusItem.SpeedMalus);
+            GameManager.Instance.Spawner.UpdateTileMaxTime();
+            GameManager.Instance.AmyAnim.SetTrigger("malusReaction");
+            GameManager.Instance.ZombiGirlAnim.SetTrigger("malusReaction");
             Destroy(_malusItem.gameObject);
         }
 
@@ -60,6 +72,9 @@ public class PickUpComponent : MonoBehaviour
         if (_reverseItem)
         {
             Debug.Log("Reverse");
+            GameManager.Instance.AmyAnim.SetTrigger("reverseReaction");
+            GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
+            EnterUpsideDown();
             ReverseCamera();
             Destroy(_reverseItem.gameObject);
         }
