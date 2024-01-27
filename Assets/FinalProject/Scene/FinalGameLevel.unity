@@ -2694,7 +2694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861416000}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000016236429, y: 0.33100694, z: 0.9436283, w: 0.0000000056954317}
+  m_LocalRotation: {x: 0.000000016236429, y: 0.33100694, z: 0.9436283, w: -0.0000000056954317}
   m_LocalPosition: {x: 0, y: -5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5158,6 +5158,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10023fe4aa5608a45947e0afbcb79e4c, type: 3}
+--- !u!95 &1966769261 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2857085359142103579, guid: c70092e8696b64e46b1fc19a6578e925, type: 3}
+  m_PrefabInstance: {fileID: 2145422872875914336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1987316495
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5691,6 +5696,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreTxt: {fileID: 651598763608544031}
+--- !u!114 &1565071045009677124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3043427289175769966, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
+  m_PrefabInstance: {fileID: 4147621093022373132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456887612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b6e174f454b664db4c439ec1da550b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2145422872875914336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5837,6 +5853,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1156747662326041735, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
+      propertyPath: animationUpdate
+      value: 
+      objectReference: {fileID: 1565071045009677124}
     - target: {fileID: 2615388070228749586, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5877,6 +5897,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3043427289175769966, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
+      propertyPath: reflectAnimator
+      value: 
+      objectReference: {fileID: 1966769261}
     - target: {fileID: 3386822623273367464, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: m_Name
       value: Amy
