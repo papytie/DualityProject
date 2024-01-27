@@ -8,6 +8,7 @@ public class Animation : MonoBehaviour
     [SerializeField] Animator playerAnimator = null;
     [SerializeField] MovementComponent movement = null;
     [SerializeField] Animator reflectAnimator = null;
+    [SerializeField] float dampAnimation = 0.1f;
 
 
     public MovementComponent Movement => movement;
@@ -34,17 +35,17 @@ public class Animation : MonoBehaviour
 
     public void UpdateRightAxisParam(float _value)
     {
-       
-        playerAnimator.SetFloat(AnimationParameter.RightAxisParam, _value);
-        reflectAnimator.SetFloat(AnimationParameter.RightAxisParam, _value);
+
+        playerAnimator.SetFloat(AnimationParameter.RightAxisParam,_value,dampAnimation,Time.deltaTime) ;
+        reflectAnimator.SetFloat(AnimationParameter.RightAxisParam, _value,dampAnimation,Time.deltaTime);
         
 
     }
     public void UpdateAnimSpeedParam(float _value)
     {
 
-        playerAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value);
-        reflectAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value);
+        playerAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value, dampAnimation, Time.deltaTime);
+        reflectAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value, dampAnimation, Time.deltaTime);
 
     }
 }
