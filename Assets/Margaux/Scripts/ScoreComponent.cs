@@ -22,7 +22,7 @@ public class ScoreComponent : MonoBehaviour
     public void ChangeScore(int _value)
     {
         score += _value;
-        UpdateScoreUI(_value);
+        UpdateScoreUI(score);
     }
    
     public void UpdateScoreUI(int _value)
