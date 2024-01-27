@@ -9,6 +9,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
     public event Action OnBonusSpawn = null;
     public event Action OnMalusSpawn = null;
     public event Action OnReverseSpawn = null;
+    public event Action OnScoreSpawn = null;
 
     [Header("References")]
     [SerializeField] GameObject player = null;
@@ -16,9 +17,9 @@ public class InfiniteLevelGeneration : MonoBehaviour
     [Header("Tile Settings")]
     [SerializeField] GameObject tileTemplate = null;
     [SerializeField] float sectionSize = 10;
-    [SerializeField] float tileCurrentTime = 0;
     [SerializeField] float tileMaxTime = 3;
     [SerializeField] int tileCount = 3;
+    float tileCurrentTime = 0;
 
     [Header("PickUps Settings")]
     [SerializeField] float minZPos = -10;
@@ -26,29 +27,35 @@ public class InfiniteLevelGeneration : MonoBehaviour
     [SerializeField] int minXPos = -4;
     [SerializeField] int maxXPos = 4;
 
-    [Header("Bonus Settings")]
+    [Header("Score Settings")]
+    [SerializeField] GameObject scoreItem = null;
+    [SerializeField] float scoreMaxTime = 3;
+    [SerializeField] float scoreYPos = 1;
+    [SerializeField] float scoreSequenceTime = .1f;
+    [SerializeField] int scoreSequenceNumber = 4;
+    [SerializeField] bool scoreSpawnInSequence = true;
+    float scoreCurrentTime = 0;
+    int scoreSpawnCount = 0;
+    float scoreZLocation = 0;
+    float scoreXLocation = 0;
+
+    [Header("Speed Bonus Settings")]
     [SerializeField] GameObject SpeedBonusItem = null;
-    [SerializeField] float bonusCurrentTime = 0;
     [SerializeField] float bonusMaxTime = 3;
     [SerializeField] float bonusYPos = 1;
-    [SerializeField] float bonusSequenceTime = .1f;
-    [SerializeField] int bonusSequenceNumber = 4;
-    [SerializeField] bool bonusSpawnInSequence = true;
-    int bonusSpawnCount = 0;
-    float bonusZLocation = 0;
-    float bonusXLocation = 0;
+    float bonusCurrentTime = 0;
 
-    [Header("Malus Settings")]
+    [Header("Speed Malus Settings")]
     [SerializeField] GameObject SpeedMalusItem = null;
-    [SerializeField] float malusCurrentTime = 0;
     [SerializeField] float malusMaxTime = 3;
     [SerializeField] float malusYPos = -1;
+    float malusCurrentTime = 0;
 
     [Header("Reverse Settings")]
     [SerializeField] GameObject reverseItem = null;
-    [SerializeField] float reverseCurrentTime = 0;
     [SerializeField] float reverseMaxTime = 3;
     [SerializeField] float reverseYPos = 0;
+    float reverseCurrentTime = 0;
 
     //[SerializeField] bool faceRecto = true;
     //[SerializeField] List<GameObject> tileList = new();
@@ -61,13 +68,19 @@ public class InfiniteLevelGeneration : MonoBehaviour
             tileCount++;
         };
 
-        OnBonusSpawn += () =>
+        OnScoreSpawn += () =>
         {
-            if(bonusSpawnInSequence)
+            if(scoreSpawnInSequence)
             {
-                SpawnSequence(bonusSequenceNumber, bonusSequenceTime, bonusYPos);
+                SpawnSequence(scoreSequenceNumber, scoreSequenceTime, scoreYPos);
                 return;
             }
+            SpawnNew(scoreItem, NextPickUpPos(scoreYPos));
+
+        };
+
+        OnBonusSpawn += () =>
+        {
             SpawnNew(SpeedBonusItem, NextPickUpPos(bonusYPos));
         };
 
@@ -88,6 +101,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
         bonusCurrentTime = IncreaseTimer(OnBonusSpawn, ref bonusCurrentTime, bonusMaxTime);
         malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, malusMaxTime);
         reverseCurrentTime = IncreaseTimer(OnReverseSpawn, ref reverseCurrentTime, reverseMaxTime);
+        scoreCurrentTime = IncreaseTimer(OnScoreSpawn, ref scoreCurrentTime, scoreMaxTime);
     }
 
     void SpawnNew(GameObject _toSpawn, Vector3 _spawnPos)
@@ -95,25 +109,24 @@ public class InfiniteLevelGeneration : MonoBehaviour
         Instantiate(_toSpawn, _spawnPos, Quaternion.identity);
     }
 
-    void SpawnSpeedBonus()
+    void SpawnScoreSequence()
     {
-        Vector3 _newLoc = new Vector3(bonusXLocation, bonusYPos, bonusZLocation + player.transform.position.z);
-        //Debug.Log(_newLoc);
-        SpawnNew(SpeedBonusItem, _newLoc);
+        Vector3 _newLoc = new Vector3(scoreXLocation, scoreYPos, scoreZLocation + player.transform.position.z);
+        SpawnNew(scoreItem, _newLoc);
         
-        bonusSpawnCount++;
-        if (bonusSpawnCount >= bonusSequenceNumber)
+        scoreSpawnCount++;
+        if (scoreSpawnCount >= scoreSequenceNumber)
         {
-            CancelInvoke(nameof(SpawnSpeedBonus));
-            bonusSpawnCount = 0;
+            CancelInvoke(nameof(SpawnScoreSequence));
+            scoreSpawnCount = 0;
         }
     }
 
     void SpawnSequence(int _number, float _time, float _Ypos)
     {
-        bonusZLocation = RandomZFromPlayer();
-        bonusXLocation = RandomXClampPos();
-        InvokeRepeating(nameof(SpawnSpeedBonus), 0, _time);
+        scoreZLocation = RandomZFromPlayer();
+        scoreXLocation = RandomXClampPos();
+        InvokeRepeating(nameof(SpawnScoreSequence), 0, _time);
 
     }
 
