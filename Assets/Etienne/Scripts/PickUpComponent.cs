@@ -36,8 +36,7 @@ public class PickUpComponent : MonoBehaviour
         if (_scoreItem)
         {
             Debug.Log("Score : +" + _scoreItem.ScoreValue);
-            //TODO: Fix Score component
-            //scoreComponent.ChangeScore(_scoreItem.ScoreValue);
+            scoreComponent.ChangeScore(_scoreItem.ScoreValue);
             Destroy(_scoreItem.gameObject);
         }
         
