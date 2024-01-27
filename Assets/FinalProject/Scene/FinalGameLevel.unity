@@ -359,6 +359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 97162203}
     m_Modifications:
+    - target: {fileID: 1677488355367065884, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
+      propertyPath: m_Name
+      value: ButtonContinue
+      objectReference: {fileID: 0}
     - target: {fileID: 2658207040673857547, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -443,10 +447,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuPanel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1597692597029488341, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1677488355367065884, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 821659591}
   m_SourcePrefab: {fileID: 100100000, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
 --- !u!224 &107675290 stripped
 RectTransform:
@@ -2379,6 +2387,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 310c8563bb16aab449c46c611fd80f93, type: 3}
+--- !u!1 &821659585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1677488355367065884, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
+  m_PrefabInstance: {fileID: 107675289}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &821659588 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7873822476999243371, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
+  m_PrefabInstance: {fileID: 107675289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821659585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &821659591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821659585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7389ba5ed630a479cef34b7a768de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 821659588}
+  buttonText: {fileID: 1809175379}
+  pauseMenu: {fileID: 107675291}
 --- !u!4 &823119263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7193571555109086104, guid: 72151d3f59f81f84bbdeaeccd7264012, type: 3}
@@ -2651,7 +2690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861416000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000016236429, y: 0.33100694, z: 0.9436283, w: -0.0000000056954317}
+  m_LocalRotation: {x: -0.000000016236429, y: 0.33100694, z: 0.9436283, w: 0.0000000056954317}
   m_LocalPosition: {x: 0, y: -5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4953,6 +4992,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 86451b436823fa44db7c878f40e28ad2, type: 3}
+--- !u!114 &1809175379 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954887303896014473, guid: 9b25070e16d04bf4e8515afc782eb348, type: 3}
+  m_PrefabInstance: {fileID: 107675289}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1820984851 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7310508512255557043, guid: 310c8563bb16aab449c46c611fd80f93, type: 3}
