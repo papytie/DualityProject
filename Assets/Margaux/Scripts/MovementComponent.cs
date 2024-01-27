@@ -33,8 +33,9 @@ public class MovementComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       MoveAutoForward();
+        MoveAutoForward();
         MoveHorizontal();
+        animationUpdate.UpdateAnimSpeedParam(moveSpeed / 10);
     }
     public void MoveAutoForward()
     {
@@ -48,11 +49,7 @@ public class MovementComponent : MonoBehaviour
         transform.position += _horizontalMovement;
         transform.position=new Vector3(Mathf.Clamp(
             transform.position.x,clampNeg,clampPos),transform.position.y,transform.position.z);
-        //UpdateRightAxisParam();
-    }
-    public void UpdateAnimSpeed()
-    {
-        //animSpeed = moveSpeed / 10;
+        animationUpdate.UpdateRightAxisParam(_horizontalValue);
     }
    
     public void SetMoveSpeed(float _value)

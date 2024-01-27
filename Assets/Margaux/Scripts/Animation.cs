@@ -7,6 +7,8 @@ public class Animation : MonoBehaviour
 {
     [SerializeField] Animator playerAnimator = null;
     [SerializeField] MovementComponent movement = null;
+    [SerializeField] Animator reflectAnimator = null;
+
 
     public MovementComponent Movement => movement;
 
@@ -34,12 +36,15 @@ public class Animation : MonoBehaviour
     {
        
         playerAnimator.SetFloat(AnimationParameter.RightAxisParam, _value);
+        reflectAnimator.SetFloat(AnimationParameter.RightAxisParam, _value);
+        
 
     }
     public void UpdateAnimSpeedParam(float _value)
     {
 
         playerAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value);
+        reflectAnimator.SetFloat(AnimationParameter.AnimSpeedParam, _value);
 
     }
 }
