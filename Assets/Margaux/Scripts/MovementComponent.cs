@@ -9,6 +9,7 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float moveSpeed = 10;
     [SerializeField] float clampNeg = -1;
     [SerializeField] float clampPos = 1;
+    [SerializeField] float turnSpeed=5;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
     [SerializeField] AnimationParameter animationParameter = null;
@@ -45,7 +46,7 @@ public class MovementComponent : MonoBehaviour
     public void MoveHorizontal()
     {
         float _horizontalValue = Move.ReadValue<float>();
-        Vector3 _horizontalMovement = new Vector3(_horizontalValue, 0f, 0f) * moveSpeed * Time.deltaTime;
+        Vector3 _horizontalMovement = new Vector3(_horizontalValue, 0f, 0f) * turnSpeed * Time.deltaTime;
         transform.position += _horizontalMovement;
         transform.position=new Vector3(Mathf.Clamp(
             transform.position.x,clampNeg,clampPos),transform.position.y,transform.position.z);
