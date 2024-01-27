@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 5140182292974600519}
   buttonText: {fileID: 9070490286940345277}
-  sceneToLoad: {fileID: 102900000, guid: d08dd999ea7ad784cad959f07a63b803, type: 3}
+  sceneToLoad: {fileID: 102900000, guid: 612c8696ae165df4589d9124053545d7, type: 3}
 --- !u!1 &7392959372553468401
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,13 +552,14 @@ GameObject:
   - component: {fileID: 1960993937642096551}
   - component: {fileID: 2154438764081055448}
   - component: {fileID: 735742285570975851}
+  - component: {fileID: 9089739394585255163}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1960993937642096551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -619,6 +620,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9089739394585255163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7392959372553468401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ca6cb27ce7f24443b487efa30eb994e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOver: {fileID: 7392959372553468401}
 --- !u!1 &7794889946801694601
 GameObject:
   m_ObjectHideFlags: 0

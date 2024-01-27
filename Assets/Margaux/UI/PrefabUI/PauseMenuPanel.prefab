@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4740029132322983100}
   - component: {fileID: 1872127634210024997}
   - component: {fileID: 7873822476999243371}
-  - component: {fileID: 1597692597029488341}
+  - component: {fileID: 7498419081629449474}
   m_Layer: 5
-  m_Name: ButtonRestart
+  m_Name: ButtonContinue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1597692597029488341
+--- !u!114 &7498419081629449474
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1677488355367065884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387ed479ccff13d4084dbe5dded4b64d, type: 3}
+  m_Script: {fileID: 11500000, guid: dc7389ba5ed630a479cef34b7a768de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 7873822476999243371}
