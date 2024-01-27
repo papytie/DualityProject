@@ -149,5 +149,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreTxt: {fileID: 301034217330087971}
-  bonusScore: 50
-  malusScore: -50
