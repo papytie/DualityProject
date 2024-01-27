@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
-  speedBonus: 0.5
+  speedBonus: 1
 --- !u!1001 &3127517752339950747
 PrefabInstance:
   m_ObjectHideFlags: 0

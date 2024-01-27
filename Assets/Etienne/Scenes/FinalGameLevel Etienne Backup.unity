@@ -174,10 +174,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ead6e80b54619439cad31534a0fd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
+  movementSpeed: 10.1
   accelerationValue: 0.1
-  maxDistThreshold: 5
-  minDistThreshold: 2
+  maxDistThreshold: 3
+  minDistThreshold: 1
   maxT: 1
 --- !u!65 &5124075
 BoxCollider:
@@ -4338,12 +4338,14 @@ MonoBehaviour:
   scoreSequenceTime: 0.25
   scoreSequenceNumber: 4
   scoreSpawnInSequence: 1
+  scoreCurrentTime: 0
+  scoreSpawnCount: 0
   SpeedBonusItem: {fileID: 4922461117786730151, guid: 5f40fa76463b12a42b58fd9b81cc2762, type: 3}
   bonusMaxTime: 5
-  versoBonusMaxTime: 30
+  versoBonusMaxTime: 3
   bonusYPos: 1
   SpeedMalusItem: {fileID: 4444052511972696272, guid: 820431511ceb7624c87023a1f06c5d76, type: 3}
-  malusMaxTime: 5
+  malusMaxTime: 7
   versoMalusMaxTime: 1
   malusYPos: -1
   reverseItem: {fileID: 7000247999744775016, guid: 60f71d6ae26191544995c5ce78a4651c, type: 3}
