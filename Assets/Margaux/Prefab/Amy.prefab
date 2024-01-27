@@ -69,6 +69,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90ea68369da4c3c489a4f5f747462897, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7005609985840836797}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90ea68369da4c3c489a4f5f747462897, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6526048096465510311}
   m_SourcePrefab: {fileID: 100100000, guid: 90ea68369da4c3c489a4f5f747462897, type: 3}
 --- !u!1 &11948526639573463 stripped
 GameObject:
@@ -90,6 +93,7 @@ MonoBehaviour:
   moveSpeed: 10
   clampNeg: -1
   clampPos: 1
+  turnSpeed: 5
   move:
     m_Name: Move
     m_Type: 0
@@ -99,6 +103,7 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+  animationUpdate: {fileID: 0}
 --- !u!114 &456742694771313048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +118,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 6737824191044479255}
   movement: {fileID: 1565071045334067688}
+  reflectAnimator: {fileID: 0}
+  dampAnimation: 0.1
 --- !u!114 &7005609985840836797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +143,18 @@ MonoBehaviour:
     m_Interactions: 
     m_SingletonActionBindings: []
     m_Flags: 0
+--- !u!114 &-6526048096465510311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11948526639573463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87876b1dbfd45c849b1bac9befd91351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &6737824191044479255 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 90ea68369da4c3c489a4f5f747462897, type: 3}
