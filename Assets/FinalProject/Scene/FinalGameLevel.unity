@@ -3734,6 +3734,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4989276627876825286, guid: c70092e8696b64e46b1fc19a6578e925, type: 3}
   m_PrefabInstance: {fileID: 2145422872875914336}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1287820523 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2857085359142103579, guid: c70092e8696b64e46b1fc19a6578e925, type: 3}
+  m_PrefabInstance: {fileID: 2145422872875914336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1340579428
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,6 +5488,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 97162203}
     m_Modifications:
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5900,7 +5909,11 @@ PrefabInstance:
     - target: {fileID: 3043427289175769966, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: reflectAnimator
       value: 
+<<<<<<< HEAD
       objectReference: {fileID: 1966769261}
+=======
+      objectReference: {fileID: 1287820523}
+>>>>>>> fd5518385540786f24ed38819704208e9d322529
     - target: {fileID: 3386822623273367464, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: m_Name
       value: Amy
