@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PickUpComponent : MonoBehaviour
 {
-    [SerializeField] MovementComponent movementComponent;
+    MovementComponent movementComponent = null;
+    ScoreComponent scoreComponent = null;
 
     void Start()
     {
@@ -15,6 +16,7 @@ public class PickUpComponent : MonoBehaviour
     void InitComponent()
     {
         movementComponent = GetComponent<MovementComponent>();
+        scoreComponent = GetComponent<ScoreComponent>();
     }
 
     void Update()
@@ -30,6 +32,15 @@ public class PickUpComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        ScoreItem _scoreItem = other.gameObject.GetComponent<ScoreItem>();
+        if (_scoreItem)
+        {
+            Debug.Log("Score : +" + _scoreItem.ScoreValue);
+            //TODO: Fix Score component
+            //scoreComponent.ChangeScore(_scoreItem.ScoreValue);
+            Destroy(_scoreItem.gameObject);
+        }
+        
         SpeedUpItem _bonusItem = other.gameObject.GetComponent<SpeedUpItem>();
         if (_bonusItem)
         {

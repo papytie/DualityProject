@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class PickUpItem : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 100;
-    [SerializeField] Destroyer destroyer = null;
 
     protected virtual void Start()
     {
@@ -19,8 +18,8 @@ public abstract class PickUpItem : MonoBehaviour
 
     void InitItem()
     {
-        transform.eulerAngles = new Vector3(45, 45, 45);
-        destroyer = GameManager.Instance.DestroyerRef;
+        //transform.eulerAngles = new Vector3(45, 45, 45);
+        //destroyer = GameManager.Instance.DestroyerRef;
 
     }
 
