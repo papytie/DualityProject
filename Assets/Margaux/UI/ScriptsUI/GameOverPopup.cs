@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOverPopup : MonoBehaviour
 {
     [SerializeField] GameObject gameOver = null;
+    [SerializeField] GameObject scoreTxt = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class GameOverPopup : MonoBehaviour
     public void ActivateGameOverPanel()
     {
         gameOver.SetActive(true);
+        scoreTxt.SetActive(false);
         Time.timeScale = 0;
     }
 }
