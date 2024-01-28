@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LoadScene : CustomButtonUI
 {
     
-    [SerializeField] SceneAsset sceneToLoad = null;
+    //[SerializeField] SceneAsset sceneToLoad = null;
     // Start is called before the first frame update
     protected override void Start()
     {
