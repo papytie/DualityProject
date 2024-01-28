@@ -15,7 +15,7 @@ public class EndScoreUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //UpdateEndScore();
     }
     public void UpdateEndScore(int _value)
     {
