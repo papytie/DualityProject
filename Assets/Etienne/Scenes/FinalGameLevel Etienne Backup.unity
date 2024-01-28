@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ead6e80b54619439cad31534a0fd6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFreeze: 0
   movementSpeed: 6.1
   accelerationValue: 0.1
   maxDistThreshold: 4
@@ -4407,7 +4408,7 @@ MonoBehaviour:
   malusYSpawnPos: -1
   malusZSpawnPos: 60
   reverseItem: {fileID: 7000247999744775016, guid: 60f71d6ae26191544995c5ce78a4651c, type: 3}
-  reverseMaxTime: 10
+  reverseMaxTime: 5
   versoReverseMaxTime: 30
   reverseYSpawnPos: 0
   reverseZSpawnPos: 65
@@ -5655,7 +5656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1156747662326041735, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: moveSpeed
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2615388070228749586, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
       propertyPath: m_LocalPosition.x

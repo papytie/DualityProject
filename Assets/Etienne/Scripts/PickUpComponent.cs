@@ -7,6 +7,8 @@ public class PickUpComponent : MonoBehaviour
     MovementComponent movementComponent = null;
     ScoreComponent scoreComponent = null;
 
+    float moveSpeedSave = 0;
+
     void Start()
     {
         InitComponent();
@@ -74,7 +76,9 @@ public class PickUpComponent : MonoBehaviour
             Debug.Log("Reverse");
             GameManager.Instance.AmyAnim.SetTrigger("reverseReaction");
             GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
-            //EnterUpsideDown();
+            GameManager.Instance.DestroyerRef.IsFreeze = true;
+            moveSpeedSave = movementComponent.MoveSpeed;
+            movementComponent.SetMoveSpeed(0);
             ReverseCamera();
         }
 
@@ -92,7 +96,11 @@ public class PickUpComponent : MonoBehaviour
             ReverseItem _reverseItem = other.gameObject.GetComponent<ReverseItem>();
             if (_reverseItem)
             {
-                Destroy(_reverseItem.gameObject);
+                Destroy(_reverseItem.gameObject); 
+                GameManager.Instance.DestroyerRef.IsFreeze = false;
+                movementComponent.SetMoveSpeed(moveSpeedSave);
+
+
             }
         }
 
