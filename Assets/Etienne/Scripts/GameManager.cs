@@ -14,8 +14,10 @@ public class GameManager : Singleton<GameManager>
     public InfiniteLevelGeneration Spawner => spawner;
     public Animator AmyAnim => amyAnim;
     public Animator ZombiGirlAnim => zombiGirlAnim;
+    public AudioManager AudioManager => audioManager;
 
     [SerializeField] InfiniteLevelGeneration spawner = null;
+    [SerializeField] AudioManager audioManager = null;
     [SerializeField] MovementComponent playerMoveRef = null;
     [SerializeField] Destroyer destroyerRef = null;
     [SerializeField] CinemachineVirtualCamera amyCam = null;

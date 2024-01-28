@@ -36,6 +36,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
 */    
 
     [Header("Score Settings")]
+    [SerializeField] GameObject superScoreItem = null;
     [SerializeField] GameObject scoreItem = null;
     [SerializeField] float scoreMaxTime = 3;
     [SerializeField] float scoreYSpawnPos = 1;
@@ -94,7 +95,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
                 return;
             }
             //SpawnNew(scoreItem, RandomPickUpPos(scoreYSpawnPos));
-            SpawnNew(scoreItem, new Vector3(RandomXClampPos(), scoreYSpawnPos, player.transform.position.z + scoreZSpawnPos));
+            SpawnNew(superScoreItem, new Vector3(RandomXClampPos(), scoreYSpawnPos, player.transform.position.z + scoreZSpawnPos));
 
         };
 

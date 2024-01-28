@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class ReverseItem : MonoBehaviour
 {
-   
+   public void DestroyItem()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -32,6 +32,23 @@ public class PickUpComponent : MonoBehaviour
         GameManager.Instance.ZombieCam.Priority = GameManager.Instance.ZombieCam.Priority == 0 ? 1 : 0;
     }
 
+    public void UnfreezePlayer()
+    {
+        if(!movementComponent) return;
+        movementComponent.IsFreeze = false;
+    }
+    public void FreezePlayer()
+    {
+        if(!movementComponent) return;
+        movementComponent.IsFreeze = true;
+    }
+
+    public void TeleportPlayerOnAnimEnd()
+    {
+        gameObject.transform.position += gameObject.transform.forward * 1.1f;
+        Debug.Log("teleport");
+    }
+
     /*void EnterUpsideDown()
     {
         GameManager.Instance.Spawner.IsUpsideDown = GameManager.Instance.Spawner.IsUpsideDown ? false : true;
@@ -78,8 +95,9 @@ public class PickUpComponent : MonoBehaviour
             GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
             GameManager.Instance.DestroyerRef.IsFreeze = true;
             moveSpeedSave = movementComponent.MoveSpeed;
-            //movementComponent.SetMoveSpeed(0); //TODO : bool freezeMovement
+
             ReverseCamera();
+            //Invoke(nameof(_reverseItem.DestroyItem), 1);
         }
 
         Destroyer _destroyer = other.gameObject.GetComponent<Destroyer>();
