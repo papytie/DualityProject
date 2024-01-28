@@ -6,6 +6,7 @@ public class ContinueButton : CustomButtonUI
 {
     [SerializeField] GameObject pauseMenu = null;
     [SerializeField] GameObject scoreText = null;
+    
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -22,6 +23,7 @@ public class ContinueButton : CustomButtonUI
         Time.timeScale = 1.0f;
         pauseMenu.gameObject.SetActive(false);
         scoreText.gameObject.SetActive(true);
+        GameManager.Instance.AudioManager.PlaySound("ContinueSound");
 
     }
 }

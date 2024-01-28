@@ -20,8 +20,8 @@ public class RestartButton : CustomButtonUI
     }
     protected override void Execute()
     {
+        GameManager.Instance.AudioManager.PlaySound("RestartSound");
         SceneManager.LoadScene("ReflectRunnerGameLevel");
-
         Time.timeScale = 1;
 
     }

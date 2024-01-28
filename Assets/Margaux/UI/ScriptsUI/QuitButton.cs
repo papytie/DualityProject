@@ -18,6 +18,7 @@ public class QuitButton : CustomButtonUI
     }
     protected override void Execute()
     {
+        GameManager.Instance.AudioManager.PlaySound("QuitSound");
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #endif
