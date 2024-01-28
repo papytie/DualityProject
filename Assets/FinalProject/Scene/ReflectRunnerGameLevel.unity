@@ -2681,7 +2681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861416000}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000015896623, y: 0.3826835, z: 0.92387956, w: 0.0000000065845964}
+  m_LocalRotation: {x: 0.000000015896623, y: 0.3826835, z: 0.92387956, w: -0.0000000065845964}
   m_LocalPosition: {x: 0, y: -5.1, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4676,7 +4676,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 921c96dc410ebf044ba62472a9746df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: GameMusic
+    clip: {fileID: 8300000, guid: 316a6fc48c47549f681634025e2089f5, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ContinueSound
+    clip: {fileID: 8300000, guid: 57798a61e786786498482b756dfd9207, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: QuitSound
+    clip: {fileID: 8300000, guid: 45e463a3df60bc14da929da422f0190a, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: RestartSound
+    clip: {fileID: 8300000, guid: 78ab81edcae50154e954356995545031, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ScoreSound
+    clip: {fileID: 8300000, guid: 9a9250880fe98df47943749d47988f39, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BonusSound
+    clip: {fileID: 8300000, guid: 8b87cec63a8f5d6448084be7052b227d, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MalusSound
+    clip: {fileID: 8300000, guid: d374ec2186de7234bb3fe0828ee1d823, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ReverseSound
+    clip: {fileID: 8300000, guid: ac207ee06aa0b69469151c05da836042, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1500789340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3898591076857159446, guid: 9f2557a94f1595646ba90ce000efe779, type: 3}
