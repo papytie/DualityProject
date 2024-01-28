@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         foreach (Sound _sound in sounds)
         {

@@ -60,6 +60,7 @@ public class PickUpComponent : MonoBehaviour
         ScoreItem _scoreItem = other.gameObject.GetComponent<ScoreItem>();
         if (_scoreItem)
         {
+            GameManager.Instance.AudioManager.PlaySound("ScoreSound");
             //Debug.Log("Score : +" + _scoreItem.ScoreValue);
             scoreComponent.ChangeScore(_scoreItem.ScoreValue);
             Destroy(_scoreItem.gameObject);
@@ -68,6 +69,8 @@ public class PickUpComponent : MonoBehaviour
         SpeedUpItem _bonusItem = other.gameObject.GetComponent<SpeedUpItem>();
         if (_bonusItem)
         {
+            GameManager.Instance.AudioManager.PlaySound("BonusSound");
+
             //Debug.Log("SpeedBonus : +" + _bonusItem.SpeedBonus);
             movementComponent.SetMoveSpeed(_bonusItem.SpeedBonus);
             GameManager.Instance.Spawner.UpdateTileMaxTime();
@@ -79,6 +82,8 @@ public class PickUpComponent : MonoBehaviour
         SpeedDownItem _malusItem = other.gameObject.GetComponent<SpeedDownItem>();
         if (_malusItem)
         {
+            GameManager.Instance.AudioManager.PlaySound("MalusSound");
+
             //Debug.Log("SpeedDown : " + _malusItem.SpeedMalus);
             movementComponent.SetMoveSpeed(_malusItem.SpeedMalus);
             GameManager.Instance.Spawner.UpdateTileMaxTime();
@@ -90,6 +95,8 @@ public class PickUpComponent : MonoBehaviour
         ReverseItem _reverseItem = other.gameObject.GetComponent<ReverseItem>();
         if (_reverseItem)
         {
+            GameManager.Instance.AudioManager.PlaySound("ReverseSound");
+
             //Debug.Log("Reverse");
             GameManager.Instance.AmyAnim.SetTrigger("reverseReaction");
             GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
@@ -103,6 +110,10 @@ public class PickUpComponent : MonoBehaviour
         Destroyer _destroyer = other.gameObject.GetComponent<Destroyer>();
         if (_destroyer)
         {
+            GameManager.Instance.AudioManager.StopSound("MenuMusic");
+            GameManager.Instance.AudioManager.PlaySound("GameOverSound");
+
+
             //Debug.Log("GameOver");
             GameManager.Instance.GameOverRef.ActivateGameOverPanel();
         }

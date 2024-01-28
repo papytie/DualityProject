@@ -34,11 +34,18 @@ public class Destroyer : MonoBehaviour
     void AccelerationControl()
     {
         float _dist = Vector3.Distance(GameManager.Instance.PlayerMoveRef.transform.position, transform.position);
-
-        if(GameManager.Instance.PlayerMoveRef.MoveSpeed >= movementSpeed && _dist > maxDistThreshold) 
+        
+        if(_dist >= maxDistThreshold)
         {
+            transform.position = new Vector3(0, 0, GameManager.Instance.PlayerMoveRef.gameObject.transform.position.z - maxDistThreshold);
             movementSpeed = GameManager.Instance.PlayerMoveRef.MoveSpeed + accelerationValue; 
+
         }
+
+        /*if(GameManager.Instance.PlayerMoveRef.MoveSpeed >= movementSpeed && _dist >= maxDistThreshold) 
+        {
+        }*/
+
 
         //Adjust difficulty
 /*        if (_dist > minDistThreshold) return;
