@@ -88,7 +88,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
 
         OnScoreSpawn += () =>
         {
-            if(scoreSpawnInSequence)
+            if(scoreSpawnInSequence && !isUpsideDown) //No sequences in UpsideDown
             {
                 SpawnSequence(scoreSequenceNumber, scoreSequenceTime, scoreYSpawnPos);
                 return;
