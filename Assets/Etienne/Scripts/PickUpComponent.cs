@@ -78,7 +78,7 @@ public class PickUpComponent : MonoBehaviour
             GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
             GameManager.Instance.DestroyerRef.IsFreeze = true;
             moveSpeedSave = movementComponent.MoveSpeed;
-            movementComponent.SetMoveSpeed(0);
+            //movementComponent.SetMoveSpeed(0); //TODO : bool freezeMovement
             ReverseCamera();
         }
 
@@ -98,10 +98,10 @@ public class PickUpComponent : MonoBehaviour
             {
                 Destroy(_reverseItem.gameObject); 
                 GameManager.Instance.DestroyerRef.IsFreeze = false;
-                movementComponent.SetMoveSpeed(moveSpeedSave);
+                //movementComponent.SetMoveSpeed(moveSpeedSave); //TODO : bool freezeMovement
 
 
-            }
         }
+    }
 
     }

@@ -135,7 +135,7 @@ public class InfiniteLevelGeneration : MonoBehaviour
             bonusCurrentTime = IncreaseTimer(OnBonusSpawn, ref bonusCurrentTime, versoBonusMaxTime);
             malusCurrentTime = IncreaseTimer(OnMalusSpawn, ref malusCurrentTime, versoMalusMaxTime);
             reverseCurrentTime = IncreaseTimer(OnReverseSpawn, ref reverseCurrentTime, versoReverseMaxTime);
-            //scoreCurrentTime = IncreaseTimer(OnScoreSpawn, ref scoreCurrentTime, scoreMaxTime);
+            scoreCurrentTime = IncreaseTimer(OnScoreSpawn, ref scoreCurrentTime, scoreMaxTime);
             return;
         }
 
