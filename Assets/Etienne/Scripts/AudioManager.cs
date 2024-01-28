@@ -6,9 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
 
-    private void Awake()
+    void Awake()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         foreach (Sound _sound in sounds)
         {
@@ -20,17 +20,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    void Start()
     {
-        //Play theme
+        PlaySound("MenuMusic");
     }
 
     public void PlaySound(string _soundName)
     {
-        Sound _sound = Array.Find(sounds, sound => sound.name == name);
+        Sound _sound = Array.Find(sounds, _sound => _sound.name == _soundName);
         if(_sound == null) 
         {
-            Debug.Log("sound" + _sound.name + "is missing");
+            Debug.Log("sound" + _soundName + "is missing");
             return;
         }
         _sound.source.Play();
