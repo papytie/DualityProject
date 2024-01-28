@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        //DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
 
         foreach (Sound _sound in sounds)
         {
@@ -34,5 +34,16 @@ public class AudioManager : MonoBehaviour
             return;
         }
         _sound.source.Play();
+    }
+
+    public void StopSound(string _soundName)
+    {
+        Sound _sound = Array.Find(sounds, _sound => _sound.name == _soundName);
+        if(_sound == null) 
+        {
+            Debug.Log("sound" + _soundName + "is missing");
+            return;
+        }
+        _sound.source.Stop();
     }
 }
