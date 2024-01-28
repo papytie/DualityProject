@@ -10,6 +10,7 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] float clampNeg = -1;
     [SerializeField] float clampPos = 1;
     [SerializeField] float turnSpeed=5;
+    //[SerializeField] bool isFreeze = false;
     [SerializeField] Controls controls = null;
     [SerializeField] InputAction move = null;
     [SerializeField] AnimationParameter animationParameter = null;
@@ -20,6 +21,9 @@ public class MovementComponent : MonoBehaviour
     {
         get { return moveSpeed; }
     }
+    public bool isFreeze 
+    { 
+        get => isFreeze; set { isFreeze = value; } }
 
     private void Awake()
     {
@@ -40,6 +44,7 @@ public class MovementComponent : MonoBehaviour
     }
     public void MoveAutoForward()
     {
+        if (isFreeze) return;
         Vector3 _fwdMovement = transform.forward * moveSpeed * Time.deltaTime;
         transform.position += _fwdMovement;       
     }
