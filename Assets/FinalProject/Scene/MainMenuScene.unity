@@ -534,9 +534,15 @@ MonoBehaviour:
   sounds:
   - name: MenuMusic
     clip: {fileID: 8300000, guid: d836ea0946ef046ef9227530ff03c0c2, type: 3}
-    volume: 0.5
-    pitch: 0
+    volume: 0.2
+    pitch: 1
     loop: 1
+    source: {fileID: 0}
+  - name: StartSound
+    clip: {fileID: 8300000, guid: 4345fee3fb20cf74aa45e5b8f2fb226d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &1953476844
 Transform:
