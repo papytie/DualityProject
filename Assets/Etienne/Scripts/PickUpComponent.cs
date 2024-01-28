@@ -74,9 +74,8 @@ public class PickUpComponent : MonoBehaviour
             Debug.Log("Reverse");
             GameManager.Instance.AmyAnim.SetTrigger("reverseReaction");
             GameManager.Instance.ZombiGirlAnim.SetTrigger("reverseReaction");
-            EnterUpsideDown();
+            //EnterUpsideDown();
             ReverseCamera();
-            Destroy(_reverseItem.gameObject);
         }
 
         Destroyer _destroyer = other.gameObject.GetComponent<Destroyer>();
@@ -87,4 +86,14 @@ public class PickUpComponent : MonoBehaviour
         }
 
     }
-}
+
+        private void OnTriggerExit(Collider other)
+        {
+            ReverseItem _reverseItem = other.gameObject.GetComponent<ReverseItem>();
+            if (_reverseItem)
+            {
+                Destroy(_reverseItem.gameObject);
+            }
+        }
+
+    }
