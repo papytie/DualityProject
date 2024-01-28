@@ -22,6 +22,7 @@ public class LoadScene : CustomButtonUI
     protected override void Execute()
     {
         
-        SceneManager.LoadScene(sceneToLoad.name);
+        //SceneManager.LoadScene(sceneToLoad.name);
+        SceneManager.LoadSceneAsync(sceneToLoad.name);
     }
 }

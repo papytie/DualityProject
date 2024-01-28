@@ -20,7 +20,8 @@ public class RestartButton : CustomButtonUI
     }
     protected override void Execute()
     {
-        SceneManager.LoadScene(sceneToLoad.name);
+        //SceneManager.LoadScene(sceneToLoad.name);
+        SceneManager.LoadSceneAsync(sceneToLoad.name);
         Time.timeScale = 1;
 
     }
