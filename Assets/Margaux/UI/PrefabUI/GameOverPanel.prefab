@@ -540,7 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 5140182292974600519}
   buttonText: {fileID: 9070490286940345277}
-  sceneToLoad: {fileID: 102900000, guid: 48a2e1471fa55944fa60c8c37c7aa8e6, type: 3}
+  sceneToLoad: {fileID: 102900000, guid: 3290ef6279da918418f235e79c0fc538, type: 3}
 --- !u!1 &7392959372553468401
 GameObject:
   m_ObjectHideFlags: 0
