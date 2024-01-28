@@ -25,6 +25,7 @@ public class LoadScene : CustomButtonUI
         
         SceneManager.LoadScene("ReflectRunnerGameLevel");
         audioManager.PlaySound("StartSound");
+        audioManager.StopSound("MenuMusic");
         
     }
 }
