@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class SwapInputWindow : MonoBehaviour
 {
     [SerializeField] MovementComponent movementComponent = null;
     [SerializeField] GameObject pauseMenu = null;
+    [SerializeField] GameObject scoreText = null;
     [SerializeField] InputAction pause = null;
     [SerializeField] Controls controls = null;
 
@@ -38,6 +40,7 @@ public class SwapInputWindow : MonoBehaviour
             if (pauseMenu.activeSelf)
             {
                 Debug.Log("Pause");
+                scoreText.SetActive(false);
                 Time.timeScale = 0f;
             }
         }

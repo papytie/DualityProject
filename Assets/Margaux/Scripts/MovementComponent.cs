@@ -56,7 +56,7 @@ public class MovementComponent : MonoBehaviour
     public void SetMoveSpeed(float _value)
     {
         moveSpeed += _value;
-        turnSpeed = moveSpeed / 2;
+        //turnSpeed = moveSpeed / 2;
     }
 
     private void OnEnable()
