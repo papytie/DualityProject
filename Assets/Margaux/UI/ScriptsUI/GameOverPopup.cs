@@ -6,6 +6,8 @@ public class GameOverPopup : MonoBehaviour
 {
     [SerializeField] GameObject gameOver = null;
     [SerializeField] GameObject scoreTxt = null;
+    [SerializeField] GameObject endScore = null;
+
     // Start is called before the first frame update
     void Start()
     {
