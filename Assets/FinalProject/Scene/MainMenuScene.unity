@@ -225,6 +225,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 722300418575998710, guid: 199f7230ec3c59f4ebf1e37e4dcc3459, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2417384089160244600, guid: 199f7230ec3c59f4ebf1e37e4dcc3459, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -233,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4904733946399313478, guid: 199f7230ec3c59f4ebf1e37e4dcc3459, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f261dae69ccc6f4c97f6dfab7aaaf54, type: 3}
     - target: {fileID: 4911853100940432098, guid: 199f7230ec3c59f4ebf1e37e4dcc3459, type: 3}
       propertyPath: sceneToLoad
       value: 

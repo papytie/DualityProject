@@ -2927,7 +2927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861416000}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000016236429, y: 0.33100694, z: 0.9436283, w: -0.0000000056954317}
+  m_LocalRotation: {x: -0.000000016236429, y: 0.33100694, z: 0.9436283, w: 0.0000000056954317}
   m_LocalPosition: {x: 0, y: -5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5410,15 +5410,47 @@ PrefabInstance:
     m_TransformParent: {fileID: 97162203}
     m_Modifications:
     - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_margin.y
+      value: 53.51001
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 403268e32a3697d47816045f9b6a0ec9, type: 2}
+      objectReference: {fileID: 11400000, guid: cbb7e6a59f3be5a47a6cc2b63e70a4c5, type: 2}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.81771946
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4996570841569222886, guid: 403268e32a3697d47816045f9b6a0ec9, type: 2}
+      objectReference: {fileID: -1043347329861630296, guid: cbb7e6a59f3be5a47a6cc2b63e70a4c5, type: 2}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294955264
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 301034217330087971, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
+      propertyPath: m_enableVertexGradient
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
@@ -5451,7 +5483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 204.0758
       objectReference: {fileID: 0}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5487,7 +5519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 481
+      value: 483.0379
       objectReference: {fileID: 0}
     - target: {fileID: 621950907278439371, guid: dc34a25f72c18ff4d8da1573ac73cc7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6088,6 +6120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreTxt: {fileID: 1835496608}
+  uiPanelRect: {fileID: 0}
+  initialSize: 0
+  sizeIncreaseFactor: 0.1
 --- !u!1001 &2145422872875914336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6299,6 +6334,14 @@ PrefabInstance:
       propertyPath: scoreTxt
       value: 
       objectReference: {fileID: 1835496608}
+    - target: {fileID: 6997813396729041120, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
+      propertyPath: initialSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6997813396729041120, guid: a059b64877cd40d4f842c6bea4bcb684, type: 3}
+      propertyPath: uiPanelRect
+      value: 
+      objectReference: {fileID: 1835496607}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

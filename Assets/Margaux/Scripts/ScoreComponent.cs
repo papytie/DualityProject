@@ -7,6 +7,10 @@ public class ScoreComponent : MonoBehaviour
 {
     [SerializeField] int score = 0;
     [SerializeField] TextMeshProUGUI scoreTxt = null;
+    [SerializeField] RectTransform uiPanelRect = null;
+
+    public float initialSize;
+    public float sizeIncreaseFactor = 0.001f;
     
     public int Score => score;
     // Start is called before the first frame update
@@ -23,6 +27,7 @@ public class ScoreComponent : MonoBehaviour
     public void ChangeScore(int _value)
     {
         score += _value;
+        //initialSize=uiPanelRect.localScale.x;
         UpdateScoreUI(score);
     }
    
@@ -30,6 +35,8 @@ public class ScoreComponent : MonoBehaviour
     {
 
         scoreTxt.text = $"{_value}";
+        //float _newSize = initialSize + score * sizeIncreaseFactor;
+        //uiPanelRect.localScale=new Vector3(_newSize, _newSize, 1);
 
 
     }
