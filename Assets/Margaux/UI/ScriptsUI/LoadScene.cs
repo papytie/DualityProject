@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : CustomButtonUI
 {
-    
+    [SerializeField] AudioManager audioManager = null;
+
     //[SerializeField] SceneAsset sceneToLoad = null;
     // Start is called before the first frame update
     protected override void Start()
@@ -23,6 +24,7 @@ public class LoadScene : CustomButtonUI
     {
         
         SceneManager.LoadScene("ReflectRunnerGameLevel");
+        audioManager.PlaySound("StartSound");
         
     }
 }
