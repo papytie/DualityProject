@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
+    [SerializeField] bool isFreeze = false;
     [SerializeField] float movementSpeed = 10;
     [SerializeField] float accelerationValue = .5f;
     [SerializeField] float maxDistThreshold = 4;
     [SerializeField] float minDistThreshold = 2;
     [SerializeField] float maxT = .1f;
     float currentT = 0;
+
+    public bool IsFreeze { get => isFreeze; set { isFreeze = value; }}
 
     void Start()
     {
@@ -24,6 +27,7 @@ public class Destroyer : MonoBehaviour
 
     void StalkerMove()
     {
+        if (isFreeze) return;
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
     }
 
